@@ -5,10 +5,12 @@
 ## 1. Learner persona
 
 ### General background:
+
 - Sayén is 20 years old.
 - She studies astronomy.
 
 ### Relevant experience:
+
 - The last semester she partcipates in an intermediate workshop for tidyverse and she follows this courses:
   - Introduction to the tidyverse (10 hours).
   - Import data in R (5 hours).
@@ -19,12 +21,17 @@
   
   
 ### Perceived needs:
+
 - In her program is important make applied projects in astronomy.
 
 ### Special considerations: 
-- Very shy and she does not believe so much in her capacities.
+
+- Very shy and she does not believe so much in her capacities and suffers from impostor syndrome in discussions about 
 
 ## 2. Concept map
+
+[Conceptual map](https://github.com/jariffo/Rstudio_Certification_Teaching/blob/main/Graph_case_when.jpg)
+<img src="Graph_case_when.jpg" width="1000" />
 
 ## 3. Formative Assessment
 
@@ -32,6 +39,6 @@
 
 ## 4. Slides
 
-[Conceptual map](https://github.com/jariffo/Rstudio_Certification_Teaching/blob/main/Graph_case_when.jpg)
-<img src="Graph_case_when.jpg" width="1000" />
+[Slides](https://github.com/jariffo/Rstudio_Certification_Teaching/blob/main/docs/Clase_case_when.Rmd)
+
 
