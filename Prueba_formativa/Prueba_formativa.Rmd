@@ -1,1 +1,143 @@
+---
+title: "Formative Assessment"
+output: learnr::tutorial
+runtime: shiny_prerendered
+progressive: true
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(praise)
+
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+
+## Question 1
+```{r q1}
+question(
+  "Which code gives the following output",
+  answer(
+    "`data %>%
+  mutate(
+    moon_type = case_when(
+      num_moon %% 2 == 0 ~ 'number moon divided by 2',
+      num_moon %% 4 == 0 ~ 'number moon divided by 4',
+      TRUE ~ 'odd number moon'
+      )
+  )`",
+    correct = FALSE,
+    message = "- <i class='fas fa-exclamation'></i> Almost right! Note that for function `case_when()` the order is important. Since `num_moon %% 2 == 0` is before than `num_moon %% 4 == 0` then `number moon divided by 4` does not appear in the output"
+  ),
+  answer(
+    "`data %>%
+  mutate(
+    moon_type = case_when(
+      num_moon %% 4 == 0 ~ 'number moon divided by 4',
+      num_moon %% 2 == 0 ~ 'number moon divided by 2',
+      TRUE ~ 'odd number moon'
+      )
+  )`",
+    correct = TRUE,
+    message =  "- <i class='fas fa-check'></i> Correct! You are right! the operator `==` is for equality testing. Also, `num_moon %% 4 == 0` goes first in comparison with `num_moon %% 2 == 0`"
+  ),
+  answer(
+    "`data %>%
+  mutate(
+    moon_type = case_when(
+      num_moon %% 2 = 0 ~ 'number moon divided by 4',
+      num_moon %% 4 = 0 ~ 'number moon divided by 2',
+      TRUE ~ 'odd number moon'
+    )
+  )`",
+    correct = FALSE,
+    "- <i class='fas fa-exclamation'></i> Almost right! Do you understand the difference between `=` and `==`? The first is for assign values to arguments in function calls and the second is used for equality testing."
+  ),
+  answer(
+    "`data %>%
+  mutate(
+    moon_type = case_when(
+      num_moon %% 4 = 0 ~ 'number moon divided by 4',
+      num_moon %% 2 = 0 ~ 'number moon divided by 2',
+      TRUE ~ 'odd number moon'
+    )
+  )`",
+    correct = FALSE,
+    message =  "- <i class='fas fa-check'></i> Almost right! Remember that `=` assigns values to arguments in function calls and `==` is used for equality testing"
+  ),
+  allow_retry = TRUE,
+  incorrect = "Try again! You can do it!",
+  correct = paste(" <i class='fas fa-check'></i> Amazing", praise())
+)
+```
+
+
+
+
+## Question 2
+```{r q2}
+question(
+  "Complete the white fills",
+  answer(
+    "`data %>%
+  mutate(
+    moon_type = case_when(
+      num_moon %% 2 == 0 ~ 'number moon divided by 2',
+      num_moon %% 4 == 0 ~ 'number moon divided by 4',
+      TRUE ~ 'odd number moon'
+      )
+  )`",
+    correct = FALSE,
+    message = "- <i class='fas fa-exclamation'></i> Almost right! Note that for function `case_when()` the order is important. Since `num_moon %% 2 == 0` is before than `num_moon %% 4 == 0` then `number moon divided by 4` does not appear in the output"
+  ),
+  answer(
+    "`data %>%
+  mutate(
+    moon_type = case_when(
+      num_moon %% 4 == 0 ~ 'number moon divided by 4',
+      num_moon %% 2 == 0 ~ 'number moon divided by 2',
+      TRUE ~ 'odd number moon'
+      )
+  )`",
+    correct = TRUE,
+    message =  "- <i class='fas fa-check'></i> Correct! You are right! the operator `==` is for equality testing. Also, `num_moon %% 4 == 0` goes first in comparison with `num_moon %% 2 == 0`"
+  ),
+  answer(
+    "`data %>%
+  mutate(
+    moon_type = case_when(
+      num_moon %% 2 = 0 ~ 'number moon divided by 4',
+      num_moon %% 4 = 0 ~ 'number moon divided by 2',
+      TRUE ~ 'odd number moon'
+    )
+  )`",
+    correct = FALSE,
+    "- <i class='fas fa-exclamation'></i> Almost right! Do you understand the difference between `=` and `==`? The first is for assign values to arguments in function calls and the second is used for equality testing."
+  ),
+  answer(
+    "`data %>%
+  mutate(
+    moon_type = case_when(
+      num_moon %% 4 = 0 ~ 'number moon divided by 4',
+      num_moon %% 2 = 0 ~ 'number moon divided by 2',
+      TRUE ~ 'odd number moon'
+    )
+  )`",
+    correct = FALSE,
+    message =  "- <i class='fas fa-check'></i> Almost right! Remember that `=` assigns values to arguments in function calls and `==` is used for equality testing"
+  ),
+  allow_retry = TRUE,
+  incorrect = "Try again! You can do it!",
+  correct = paste(" <i class='fas fa-check'></i> Amazing", praise())
+)
+```
+
+
+<!-- inicio font awesome -->
+<script src="https://kit.fontawesome.com/1f72d6921a.js" crossorigin="anonymous"></script>
+<!-- final font awesome -->
+
+
+[<i class="fas fa-external-link-alt"></i> This question are from R-Studio Certification Teaching' ](https://jariffo.github.io/RStudio_Certification_Teaching/) 
 
