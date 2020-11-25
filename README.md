@@ -5,9 +5,12 @@
 ## 1. Learner persona
 
 ### General background:
+- Sayén is 20 years old
+- She studies astronomy
 
 ### Relevant experience:
-
+- She already know import data
+- She takes an intermediate course of ggplot2 of 25 hours.
 ### Perceived needs:
 
 ### Special considerations: 
