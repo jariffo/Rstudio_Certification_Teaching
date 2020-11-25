@@ -20,3 +20,5 @@
 
 ## 4. Slides
 
+[Conceptual map](https://github.com/jariffo/Rstudio_Certification_Teaching/blob/main/Graph_case_when.jpg)
+
