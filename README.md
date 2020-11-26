@@ -10,16 +10,15 @@ Sayén studies astronomy is in the last year of her program. Also, she works as 
 
 ### Relevant experience:
 
-Sayén use R since three years ago. In the last semester she partcipates in an introductory workshop for tidyverse. In particular, she knows import data and make graphs. In this semester, she participates in the intermediate workshop for tidyverse. In the capter working with data, in the last lesson she learns if_else() function.
-  
+Sayén uses R since three years ago. In the last semester, she participates in an introductory workshop for tidyverse. In particular, she knows import data and makes graphs. In this semester, she participates in the intermediate workshop for tidyverse. In the chapter working with data, in the last lesson, she learns if_else() function.  
   
 ### Perceived needs:
 
-Sayén knows that is important manipulate data to develop the university's projects and then R is a great tool. Also, her family do not understand clearer what she does, so it's great how they visualizations can help to talk with her family about her studies.
+Sayén knows that is important to manipulate data to develop the university's projects and then R is a great tool. Also, her family do not understand clearly what she does, so it's great how they visualizations can help to talk with her family about her studies.
 
 ### Special considerations: 
 
-Sayén is very shy, she does not believe so much in her capacities and suffers from impostor syndrome in discussions about R. Also, she studies with a scholarship and she prepare classes for learn more and for money.
+Sayén is very shy, she does not believe so much in her capacities and suffers from impostor syndrome in discussions about R. 
 
 ## 2. Concept map
 
