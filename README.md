@@ -6,27 +6,20 @@
 
 ### General background:
 
-- Sayén is 20 years old.
-- She studies astronomy.
+Sayén studies astronomy is in the last year of her program. Also, she works as an assistant teacher called "astronomy and statistics"; which combine theoretical and applied concepts.
 
 ### Relevant experience:
 
-- The last semester she partcipates in an intermediate workshop for tidyverse and she follows this courses:
-  - Introduction to the tidyverse (10 hours).
-  - Import data in R (5 hours).
-  - Intermediate ggplot2 (25 hours).
-  
-- In this semester, she participates in the Tidyverse Fundamental Track and the course where she enroll are
-  - Intermediate tidyverse (30 hours). She is now in the middle of the course and the chapter on Working with data, in the last lesson she learns 
+Sayén use R since three years ago. In the last semester she partcipates in an introductory workshop for tidyverse. In particular, she knows import data and make graphs. In this semester, she participates in the intermediate workshop for tidyverse. In the capter working with data, in the last lesson she learns if_else() function.
   
   
 ### Perceived needs:
 
-- In her program is important make applied projects in astronomy.
+Sayén knows that is important manipulate data to develop the university's projects and then R is a great tool. Also, her family do not understand clearer what she does, so it's great how they visualizations can help to talk with her family about her studies.
 
 ### Special considerations: 
 
-- Very shy and she does not believe so much in her capacities and suffers from impostor syndrome in discussions about 
+Sayén is very shy, she does not believe so much in her capacities and suffers from impostor syndrome in discussions about R. Also, she studies with a scholarship and she prepare classes for learn more and for money.
 
 ## 2. Concept map
 
