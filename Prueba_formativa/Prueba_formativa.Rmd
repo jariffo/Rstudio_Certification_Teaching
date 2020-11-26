@@ -17,7 +17,20 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Question 1
 ```{r q1}
 question(
-  "Which code gives the following output",
+  "Which code gives the following output:
+  
+  `# A tibble: 8 x 6`
+  
+  `planet  diameter ring  num_moon   mass moon_type`
+  `<chr>      <dbl> <lgl>    <dbl>  <dbl> <chr>`
+  `1 Mercury     0.39 FALSE        0   0.06 number moon divided by 4`
+  `2 Venus       0.95 FALSE        0   0.82 number moon divided by 4`
+  `3 Earth       1    FALSE        1   1    odd number moon`   
+  `4 Mars        0.53 FALSE        2   0.11 number moon divided by 2`
+  `5 Jupiter    11.2  TRUE        16 318    number moon divided by 4`
+  `6 Saturn      9.41 TRUE        18  95    number moon divided by 2`
+  `7 Uranus      3.98 TRUE        15  14.6  odd number moon`    
+  `8 Neptune     3.81 TRUE         8  17.2  number moon divided by 4`",
   answer(
     "`data %>%
   mutate(
@@ -78,54 +91,42 @@ question(
 ## Question 2
 ```{r q2}
 question(
-  "Complete the white fills",
+  "Complete the white fills of the following code:
+  
+  `data_plot <- data %>%
+  ____(
+    planet_moon = ____(
+      ring ____ 'TRUE' ____ num_moon ____ 0 ~ 'gaseous without moon',
+      ring ____ 'FALSE' ____ num_moon ____ 0 ~ 'terrestrial without moon',
+      ring ____ 'TRUE' ____ num_moon ____ 0 ~ 'gaseous with moon',
+      ring ____ 'FALSE' ____ num_moon ____ 0 ~ 'terrestrial with moon'
+    )
+  ) %>%
+  group_by(planet_moon) %>%
+  count() %>%
+  rename(count_planet_moon = n)`",
   answer(
-    "`data %>%
-  mutate(
-    moon_type = case_when(
-      num_moon %% 2 == 0 ~ 'number moon divided by 2',
-      num_moon %% 4 == 0 ~ 'number moon divided by 4',
-      TRUE ~ 'odd number moon'
-      )
-  )`",
-    correct = FALSE,
-    message = "- <i class='fas fa-exclamation'></i> Almost right! Note that for function `case_when()` the order is important. Since `num_moon %% 2 == 0` is before than `num_moon %% 4 == 0` then `number moon divided by 4` does not appear in the output"
-  ),
-  answer(
-    "`data %>%
-  mutate(
-    moon_type = case_when(
-      num_moon %% 4 == 0 ~ 'number moon divided by 4',
-      num_moon %% 2 == 0 ~ 'number moon divided by 2',
-      TRUE ~ 'odd number moon'
-      )
-  )`",
+    "`mutate ; case_when ; == ; &; == ; == ; & ; == ; == ; & ; > ; == ; & ; >`",
     correct = TRUE,
-    message =  "- <i class='fas fa-check'></i> Correct! You are right! the operator `==` is for equality testing. Also, `num_moon %% 4 == 0` goes first in comparison with `num_moon %% 2 == 0`"
+    message = "- <i class='fas fa-exclamation'></i> You are right, Congratulations!
+    `planet_moon` is the name of the column added using mutate.
+    The operator `&` is used to complain both conditions; 
+    for instance: if a planet is gaseous without moon is because it has ring and the number of moons is zero."
   ),
   answer(
-    "`data %>%
-  mutate(
-    moon_type = case_when(
-      num_moon %% 2 = 0 ~ 'number moon divided by 4',
-      num_moon %% 4 = 0 ~ 'number moon divided by 2',
-      TRUE ~ 'odd number moon'
-    )
-  )`",
+    "`mutate ; case_when ; == ; | ; == ; == ; | ; == ; == ; | ; == ; == ; | ; ==`",
     correct = FALSE,
-    "- <i class='fas fa-exclamation'></i> Almost right! Do you understand the difference between `=` and `==`? The first is for assign values to arguments in function calls and the second is used for equality testing."
+    message =  "- <i class='fas fa-check'></i> Incorrect! This makes that `gaseous without moon` and `gaseous with moon` are defined in the same way, which is wrong."
   ),
   answer(
-    "`data %>%
-  mutate(
-    moon_type = case_when(
-      num_moon %% 4 = 0 ~ 'number moon divided by 4',
-      num_moon %% 2 = 0 ~ 'number moon divided by 2',
-      TRUE ~ 'odd number moon'
-    )
-  )`",
+    "`case_when ; mutate ; == ; & ; == ; == ; & ; == ; == ; & ; > ; == ; & ; >`",
     correct = FALSE,
-    message =  "- <i class='fas fa-check'></i> Almost right! Remember that `=` assigns values to arguments in function calls and `==` is used for equality testing"
+    message = "- <i class='fas fa-exclamation'></i> Incorrect! "
+  ),
+  answer(
+    "`case_when; mutate ; == ; | ; == ; == ; | ; == ; == ; | ; == ; == ; | ; == `",
+    correct = FALSE,
+    message =  "- <i class='fas fa-check'></i> Incorrect! Think about the sintaxis on `case_when` and `mutate`"
   ),
   allow_retry = TRUE,
   incorrect = "Try again! You can do it!",
