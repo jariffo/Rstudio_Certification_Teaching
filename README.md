@@ -29,6 +29,8 @@ Sayén is very shy, she does not believe so much in her capacities and suffers f
 
 [Two questions](https://javiera-riffo-torres.shinyapps.io/Prueba_formativa/)
 
+(https://jariffo.github.io/RStudio_Certification_Teaching/)
+
 ## 4. Slides
 
 [Slides](https://github.com/jariffo/Rstudio_Certification_Teaching/blob/main/docs/Clase_case_when.Rmd)
