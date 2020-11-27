@@ -2,6 +2,14 @@
 
 ## About the class
 
+As in the last lesson, we work with a tibble called `data`, which have 5 columns: 
+
+  - planet
+  - diameter
+  - ring
+  - num_moon
+  - mass
+  
 ## 1. Learner persona
 
 ### General background:
