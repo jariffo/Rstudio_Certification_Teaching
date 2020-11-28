@@ -1,0 +1,166 @@
+---
+title: "Let's master case_when()"
+#subtitle: "<br> Libro: R for Data Science"
+author: "Javiera Paz Riffo T."
+encoding: "UTF-8"
+output:
+  xaringan::moon_reader:
+    #lib_dir: libs
+    css: ["default", "rladies", "rladies-fonts"]
+    pdf_document: default
+---
+layout: true
+  
+<div class="my-footer"><span>
+
+</span></div> 
+
+
+```{r include=FALSE}
+library(tidyverse)
+library(here)
+library(readr)
+#devtools::install_github('yihui/xaringan')
+```
+
+<!-- 
+-->
+
+
+---
+class:
+##  Remember our last lesson
+
+  - __Manipulation data with `if_else()`__
+```{r eval=FALSE}
+data %>%
+  mutate(
+    planet_composition = if_else(ring == "TRUE", "gaseous", "terrestrial"),
+    moon = if_else(num_moon > 0, "with moon", "without moon")
+  )
+```
+__`Q1: How evaluate more than two conditions?`__
+
+__`Q2: And if I want to count how many planets are terrestrial and have moons, how to do it?`__
+
+
+
+---
+class:
+###  At the end of this lesson...
+
+
+```{r out.width = "80%", echo=FALSE, fig.align="center"}
+knitr::include_graphics("img/Rplot07.png")
+```
+
+
+---
+class:
+####  Remeinder:
+
+0. __Packages__
+  - `library(dplyr)` : manipulation on data
+
+1. __Main Function__
+  - `case_when()`
+  
+2.  __Operators__
+  - `&` : and 
+  - `|` : or
+  - `=` :  assign values to arguments in function calls
+  - `==` : used for equality testing
+  - `>`, `<`, `<=`, `>=`: greater than, less than, less than or equal to, greater than or equal to
+
+3. __Functions in__ `dplyr`
+  - `mutate()` add column and put ir a name
+  - `%>%` : pipe operator `x %>% f(y) = f(x,y)` 
+
+  
+  
+---
+class:
+
+###  Function `case_when()`
+```{r out.width = "105%", echo=FALSE, fig.align="center"}
+knitr::include_graphics("img/case_when_function.png")
+```
+
+---
+class:
+
+###  Function `case_when()` + `mutate()`
+
+```{r out.width = "100%", echo=FALSE, fig.align="center"}
+knitr::include_graphics("img/case_when_arguments.png")
+```
+
+---
+class:
+### Examples on Live Coding
+####  `dplyr::case_when()` 
+```{r }
+diameter <- c(0.39, 0.95, 1, 0.53, 11.2, 9.41, 3.98, 3.81)
+planet_size <- case_when(diameter > 1 ~ "bigger than Earth",
+                         diameter < 1 ~ "less than Earth",
+                         TRUE ~ "Earth")
+```
+
+####  `dplyr::case_when()` and `dplyr::mutate()`
+```{r eval =FALSE}
+data %>%
+  mutate(
+    planet_size =
+      case_when(
+        diameter > 1 ~ "bigger than Earth",
+        diameter < 1 ~ "less than Earth",
+        TRUE ~ "Earth"
+      )
+  )
+```
+
+---
+class:
+
+<font size="145">  &nbsp;   &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp; Now it's your turn!</font>
+
+
+```{r out.width = "50%", echo=FALSE, fig.align="center"}
+knitr::include_graphics("img/thinking.jpg")
+```
+
+#### 	Exercise
+
+https://javiera-riffo-torres.shinyapps.io/Prueba_formativa/
+
+---
+class:
+
+<font size="145"> Congratulations! </font> 
+
+You have learn a new function `dplyr::case_when()`
+
+```{r out.width = "50%", echo=FALSE, fig.align="center"}
+knitr::include_graphics("img/good_job.jpg")
+```
+
+---
+class:
+####  Homework challenge
+
+```{r out.width = "50%", echo=FALSE, fig.align="center"}
+knitr::include_graphics("img/Rplot07.png")
+```
+
+Replicate this plot
+
+__Hints__
+
+  - `require(ggimage)`
+  - `library(ggforce)`
+  - `library(janitor)`
+  - `ggimage::ggbackground(p, img)`, where `p` is your plot and `img = "docs/img/Planets.pdf"`
+
+
+
+
