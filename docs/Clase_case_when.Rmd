@@ -1,7 +1,7 @@
 ---
 title: "Let's master case_when()"
 #subtitle: "<br> Libro: R for Data Science"
-author: "November 30th, 2020"
+author: "Javiera Paz Riffo T."
 encoding: "UTF-8"
 output:
   xaringan::moon_reader:
@@ -29,65 +29,30 @@ library(readr)
 
 ---
 class:
+##  Remember our last lesson
 
-###  Remember our last leason
-
-  - __Dataset__
-  
-```{r , width = "5%", eval=TRUE, echo=FALSE, comment=NA}
-data <-  readxl::read_excel("datos_planetas.xlsx")
-d1 <- data %>% 
-  filter(planet == "Earth" | planet == "Saturn")
-knitr::kable(d1)
-```
-
-
----
-class:
-###  Remember our last lesson
-
-  - __if_else__
+  - __Manipulation data with `if_else()`__
 ```{r eval=FALSE}
 data %>%
   mutate(
-    planet_composition = if_else(ring == "TRUE", "gaseous", "terrestrial"),
+    planet_composition = if_else(ring == TRUE, "gaseous", "terrestrial"),
     moon = if_else(num_moon > 0, "with moon", "without moon")
   )
 ```
-__`Q1: But, How evaluate more than two conditions?`__
-
-  -   __Visualizations__ 
-```{r out.width = "40%", echo=FALSE, fig.align="center"}
-knitr::include_graphics("img/Rplot08.png")
-```
-
-__`Q2: But, How to count terrestrial or gaseous planets with or without moon?`__
-
----
-class:
-### Now in this lesson
-
-__`The answer is case_when function`__
 
 
-`?case_when`
 
-```{r out.width = "100%", echo=FALSE, fig.align="center"}
-knitr::include_graphics("img/case_when_arguments.png")
-```
 
 
 ---
 class:
-###  Now, In this lesson
+###  At the end of this lesson...
+
+
 ```{r out.width = "70%", echo=FALSE, fig.align="center"}
 knitr::include_graphics("img/Rplot07.png")
 ```
 
-#### Conditional sentences
-
-For instance:
-  - __IN CASE__ `ring` = TRUE __AND__ `num_moon` = 0 __THEN__  gaseous without moon
 
 ---
 class:
@@ -96,66 +61,75 @@ class:
 0. __Packages__
   - `library(dplyr)` : manipulation on data
 
-1.  __Operators__
+1. __Main Function__
+  - `case_when()`
+  
+2.  __Operators__
   - `&` : and 
   - `|` : or
   - `=` :  assign values to arguments in function calls
-  - `==` : always used for equality testing
+  - `==` : used for equality testing
   - `>`, `<`, `<=`, `>=`: greater than, less than, less than or equal to, greater than or equal to
 
-2. __Functions in__ `dplyr`
+3. __Functions in__ `dplyr`
   - `mutate()` add column and put ir a name
   - `%>%` : pipe operator `x %>% f(y) = f(x,y)` 
 
-- We see `case_when()`
   
   
 ---
 class:
 
-####  Function `case_when()`
-```{r out.width = "85%", echo=FALSE, fig.align="center"}
+###  Function `case_when()`
+```{r out.width = "105%", echo=FALSE, fig.align="center"}
 knitr::include_graphics("img/case_when_function.png")
 ```
 
 ---
 class:
 
-####  Function `case_when()` + `mutate()`
+###  Function `case_when()` + `mutate()`
 
-```{r out.width = "80%", echo=FALSE, fig.align="center"}
-knitr::include_graphics("img/luna_case_when.png")
+```{r out.width = "100%", echo=FALSE, fig.align="center"}
+knitr::include_graphics("img/case_when_arguments.png")
+```
+
+
+---
+class:
+<center>
+<font size="145"> Live coding</font>
+</center>
+
+```{r eval=FALSE}
+library(tidyverse)
+#Cmd/Ctrl + Option + I insert chunck
+#Cmd/Ctrl + Shift + R insert section
+# Ejercicio 1 -------------------------------------------------------------
+#Crear una lista denotada como altura
+altura <- c(1.7, 1.5, -1.8, 1.2)
+#Crear un vector de comparacion
+altura_comp <- case_when(
+  altura > 1.5 ~ "muy alto",
+  altura == 1.5 ~ "normal",
+  altura < 0 ~ "dato mal ingresado",
+  altura < 1.5 ~ "bajo",
+)
+altura_comp
+
+# Ejercicio 2 -------------------------------------------------------------
+
+# data <-  readxl::read_excel("datos_planetas.xlsx")
+#La base de datos <data> ha sido cargada para ti previamente
+head(data)
 ```
 
 ---
 class:
-### Examples 
-####  `dplyr::case_when()` 
-```{r }
-diameter <- c(0.39, 0.95, 1, 0.53, 11.2, 9.41, 3.98, 3.81)
-planet_size <- case_when(diameter > 1 ~ "bigger than Earth",
-                         diameter < 1 ~ "less than Earth",
-                         TRUE ~ "Earth")
-```
 
-####  `dplyr::case_when()` and `dplyr::mutate()`
-```{r eval =FALSE}
-data %>%
-  mutate(
-    planet_size =
-      case_when(
-        diameter > 1 ~ "bigger than Earth",
-        diameter < 1 ~ "less than Earth",
-        TRUE ~ "Earth"
-      )
-  )
-```
-
----
-class:
-
-<font size="145">  &nbsp;   &nbsp;  &nbsp; &nbsp;  &nbsp; Now It's your turn!</font>
-
+<center>
+<font size="145">  Now it's your turn</font>
+</center>
 
 ```{r out.width = "50%", echo=FALSE, fig.align="center"}
 knitr::include_graphics("img/thinking.jpg")
@@ -168,8 +142,9 @@ https://javiera-riffo-torres.shinyapps.io/Prueba_formativa/
 ---
 class:
 
-<font size="145"> Congratulations! You have learn a new function dplyr::case_when() </font> 
+<font size="145"> Congratulations! </font> 
 
+You have learn a new function `dplyr::case_when()`
 
 ```{r out.width = "50%", echo=FALSE, fig.align="center"}
 knitr::include_graphics("img/good_job.jpg")
@@ -177,9 +152,9 @@ knitr::include_graphics("img/good_job.jpg")
 
 ---
 class:
-<font size="125">  Homework challenge:  </font> 
+####  Homework challenge
 
-```{r out.width = "70%", echo=FALSE, fig.align="center"}
+```{r out.width = "50%", echo=FALSE, fig.align="center"}
 knitr::include_graphics("img/Rplot07.png")
 ```
 
@@ -192,6 +167,8 @@ __Hints__
   - `library(janitor)`
   - `ggimage::ggbackground(p, img)`, where `p` is your plot and `img = "docs/img/Planets.pdf"`
 
-
+---
+class:
+#### Bibliography
 
 

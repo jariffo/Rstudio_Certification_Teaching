@@ -3,7 +3,7 @@
   <head>
     <title>Let’s master case_when()</title>
     <meta charset="utf-8" />
-    <meta name="author" content="November 30th, 2020" />
+    <meta name="author" content="Javiera Paz Riffo T." />
     <link href="Clase_case_when_files/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="Clase_case_when_files/remark-css-0.0.1/rladies.css" rel="stylesheet" />
     <link href="Clase_case_when_files/remark-css-0.0.1/rladies-fonts.css" rel="stylesheet" />
@@ -13,7 +13,7 @@
 class: center, middle, inverse, title-slide
 
 # Let’s master case_when()
-### November 30th, 2020
+### Javiera Paz Riffo T.
 
 ---
 
@@ -32,59 +32,29 @@ layout: true
 
 ---
 class:
+##  Remember our last lesson
 
-###  Remember our last leason
-
-  - __Dataset__
-  
-
-|planet | diameter|ring  | num_moon| mass|
-|:------|--------:|:-----|--------:|----:|
-|Earth  |     1.00|FALSE |        1|    1|
-|Saturn |     9.41|TRUE  |       18|   95|
-
-
----
-class:
-###  Remember our last lesson
-
-  - __if_else__
+  - __Manipulation data with `if_else()`__
 
 ```r
 data %&gt;%
   mutate(
-    planet_composition = if_else(ring == "TRUE", "gaseous", "terrestrial"),
+    planet_composition = if_else(ring == TRUE, "gaseous", "terrestrial"),
     moon = if_else(num_moon &gt; 0, "with moon", "without moon")
   )
 ```
-__`Q1: But, How evaluate more than two conditions?`__
-
-  -   __Visualizations__ 
-&lt;img src="img/Rplot08.png" width="40%" style="display: block; margin: auto;" /&gt;
-
-__`Q2: But, How to count terrestrial or gaseous planets with or without moon?`__
-
----
-class:
-### Now in this lesson
-
-__`The answer is case_when function`__
 
 
-`?case_when`
 
-&lt;img src="img/case_when_arguments.png" width="100%" style="display: block; margin: auto;" /&gt;
 
 
 ---
 class:
-###  Now, In this lesson
+###  At the end of this lesson...
+
+
 &lt;img src="img/Rplot07.png" width="70%" style="display: block; margin: auto;" /&gt;
 
-#### Conditional sentences
-
-For instance:
-  - __IN CASE__ `ring` = TRUE __AND__ `num_moon` = 0 __THEN__  gaseous without moon
 
 ---
 class:
@@ -93,64 +63,72 @@ class:
 0. __Packages__
   - `library(dplyr)` : manipulation on data
 
-1.  __Operators__
+1. __Main Function__
+  - `case_when()`
+  
+2.  __Operators__
   - `&amp;` : and 
   - `|` : or
   - `=` :  assign values to arguments in function calls
-  - `==` : always used for equality testing
+  - `==` : used for equality testing
   - `&gt;`, `&lt;`, `&lt;=`, `&gt;=`: greater than, less than, less than or equal to, greater than or equal to
 
-2. __Functions in__ `dplyr`
+3. __Functions in__ `dplyr`
   - `mutate()` add column and put ir a name
   - `%&gt;%` : pipe operator `x %&gt;% f(y) = f(x,y)` 
 
-- We see `case_when()`
   
   
 ---
 class:
 
-####  Function `case_when()`
-&lt;img src="img/case_when_function.png" width="85%" style="display: block; margin: auto;" /&gt;
+###  Function `case_when()`
+&lt;img src="img/case_when_function.png" width="105%" style="display: block; margin: auto;" /&gt;
 
 ---
 class:
 
-####  Function `case_when()` + `mutate()`
+###  Function `case_when()` + `mutate()`
 
-&lt;img src="img/luna_case_when.png" width="80%" style="display: block; margin: auto;" /&gt;
+&lt;img src="img/case_when_arguments.png" width="100%" style="display: block; margin: auto;" /&gt;
+
 
 ---
 class:
-### Examples 
-####  `dplyr::case_when()` 
+&lt;center&gt;
+&lt;font size="145"&gt; Live coding&lt;/font&gt;
+&lt;/center&gt;
+
 
 ```r
-diameter &lt;- c(0.39, 0.95, 1, 0.53, 11.2, 9.41, 3.98, 3.81)
-planet_size &lt;- case_when(diameter &gt; 1 ~ "bigger than Earth",
-                         diameter &lt; 1 ~ "less than Earth",
-                         TRUE ~ "Earth")
-```
+library(tidyverse)
+#Cmd/Ctrl + Option + I insert chunck
+#Cmd/Ctrl + Shift + R insert section
+# Ejercicio 1 -------------------------------------------------------------
+#Crear una lista denotada como altura
+altura &lt;- c(1.7, 1.5, -1.8, 1.2)
+#Crear un vector de comparacion
+altura_comp &lt;- case_when(
+  altura &gt; 1.5 ~ "muy alto",
+  altura == 1.5 ~ "normal",
+  altura &lt; 0 ~ "dato mal ingresado",
+  altura &lt; 1.5 ~ "bajo",
+)
+altura_comp
 
-####  `dplyr::case_when()` and `dplyr::mutate()`
+# Ejercicio 2 -------------------------------------------------------------
 
-```r
-data %&gt;%
-  mutate(
-    planet_size =
-      case_when(
-        diameter &gt; 1 ~ "bigger than Earth",
-        diameter &lt; 1 ~ "less than Earth",
-        TRUE ~ "Earth"
-      )
-  )
+# data &lt;-  readxl::read_excel("datos_planetas.xlsx")
+#La base de datos &lt;data&gt; ha sido cargada para ti previamente
+head(data)
 ```
 
 ---
 class:
 
-&lt;font size="145"&gt;  &amp;nbsp;   &amp;nbsp;  &amp;nbsp; &amp;nbsp;  &amp;nbsp; Now It's your turn!&lt;/font&gt;
-
+&lt;center&gt;
+&lt;font size="145"&gt;  Now it's your turn&lt;/font&gt;
+&lt;/center&gt;
 
 &lt;img src="img/thinking.jpg" width="50%" style="display: block; margin: auto;" /&gt;
 
@@ -161,16 +139,17 @@ https://javiera-riffo-torres.shinyapps.io/Prueba_formativa/
 ---
 class:
 
-&lt;font size="145"&gt; Congratulations! You have learn a new function dplyr::case_when() &lt;/font&gt; 
+&lt;font size="145"&gt; Congratulations! &lt;/font&gt; 
 
+You have learn a new function `dplyr::case_when()`
 
 &lt;img src="img/good_job.jpg" width="50%" style="display: block; margin: auto;" /&gt;
 
 ---
 class:
-&lt;font size="125"&gt;  Homework challenge:  &lt;/font&gt; 
+####  Homework challenge
 
-&lt;img src="img/Rplot07.png" width="70%" style="display: block; margin: auto;" /&gt;
+&lt;img src="img/Rplot07.png" width="50%" style="display: block; margin: auto;" /&gt;
 
 Replicate this plot
 
@@ -180,6 +159,10 @@ __Hints__
   - `library(ggforce)`
   - `library(janitor)`
   - `ggimage::ggbackground(p, img)`, where `p` is your plot and `img = "docs/img/Planets.pdf"`
+
+---
+class:
+#### Bibliography
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
