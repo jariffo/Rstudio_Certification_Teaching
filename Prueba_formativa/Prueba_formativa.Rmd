@@ -41,7 +41,7 @@ question(
       )
   )`",
     correct = FALSE,
-    message = "- <i class='fas fa-exclamation'></i> Almost right! Note that for function `case_when()` the order is important. Since `num_moon %% 2 == 0` is before than `num_moon %% 4 == 0` then `number moon divided by 4` does not appear in the output"
+    message = "- <i class='fas fa-exclamation'></i> Almost right. Note that for function `case_when()` the order is important. Since `num_moon %% 2 == 0` is before than `num_moon %% 4 == 0` then `number moon divided by 4` does not appear in the output"
   ),
   answer(
     "`data %>%
@@ -53,7 +53,7 @@ question(
       )
   )`",
     correct = TRUE,
-    message =  "- <i class='fas fa-check'></i> Correct! You are right! the operator `==` is for equality testing. Also, `num_moon %% 4 == 0` goes first in comparison with `num_moon %% 2 == 0`"
+    message =  "- <i class='fas fa-check'></i> Correct, you are right! the operator `==` is for equality testing. Also, `num_moon %% 4 == 0` goes first than `num_moon %% 2 == 0`"
   ),
   answer(
     "`data %>%
@@ -65,7 +65,7 @@ question(
     )
   )`",
     correct = FALSE,
-    "- <i class='fas fa-exclamation'></i> Almost right! Do you understand the difference between `=` and `==`? The first is for assign values to arguments in function calls and the second is used for equality testing."
+    "- <i class='fas fa-exclamation'></i> Almost right. Do you understand the difference between `=` and `==`? The first is for assign values to arguments in function calls and the second is used for equality testing."
   ),
   answer(
     "`data %>%
@@ -77,7 +77,7 @@ question(
     )
   )`",
     correct = FALSE,
-    message =  "- <i class='fas fa-check'></i> Almost right! Remember that `=` assigns values to arguments in function calls and `==` is used for equality testing"
+    message =  "- <i class='fas fa-check'></i> Almost right. Remember that `=` assigns values to arguments in function calls and `==` is used for equality testing"
   ),
   allow_retry = TRUE,
   incorrect = "Try again! You can do it!",
@@ -96,35 +96,37 @@ question(
   `data_plot <- data %>%
   ____(
     planet_moon = ____(
-      ring ____ 'TRUE' ____ num_moon ____ 0 ~ 'gaseous without moon',
-      ring ____ 'FALSE' ____ num_moon ____ 0 ~ 'terrestrial without moon',
-      ring ____ 'TRUE' ____ num_moon ____ 0 ~ 'gaseous with moon',
-      ring ____ 'FALSE' ____ num_moon ____ 0 ~ 'terrestrial with moon'
+      ring ____ TRUE ____ num_moon ____ 0 ~ 'gaseous without moon',
+      ring ____ FALSE ____ num_moon ____ 0 ~ 'terrestrial without moon',
+      ring ____ TRUE ____ num_moon ____ 0 ~ 'gaseous with moon',
+      _________________________________________________________
     )
   ) %>%
   group_by(planet_moon) %>%
   count() %>%
   rename(count_planet_moon = n)`",
   answer(
-    "`mutate ; case_when ; == ; &; == ; == ; & ; == ; == ; & ; > ; == ; & ; >`",
+    "`mutate ; case_when ; == ; &; == ; == ; & ; == ; == ; & ; > ; ring == FALSE & num_moon > 0 ~ 'terrestrial with moon'`",
     correct = TRUE,
     message = "- <i class='fas fa-exclamation'></i> You are right, Congratulations!
     `planet_moon` is the name of the column added using mutate.
     The operator `&` is used to complain both conditions; 
-    for instance: if a planet is gaseous without moon is because it has ring and the number of moons is zero."
+    for instance: if a planet is gaseous and without moon is because it has ring and the number of moons is zero."
   ),
   answer(
-    "`mutate ; case_when ; == ; | ; == ; == ; | ; == ; == ; | ; == ; == ; | ; ==`",
-    correct = FALSE,
-    message =  "- <i class='fas fa-check'></i> Incorrect! This makes that `gaseous without moon` and `gaseous with moon` are defined in the same way, which is wrong."
+    "`mutate ; case_when ; == ; &; == ; == ; & ; == ; == ; & ; > ; TRUE ~ 'terrestrial with moon'`",
+    correct = TRUE,
+    message = "- <i class='fas fa-exclamation'></i> You are right, Congratulations!
+    When none of the first three conditions is satisfied then, the planet is `'terrestrial with moon'`.
+    "
   ),
   answer(
-    "`case_when ; mutate ; == ; & ; == ; == ; & ; == ; == ; & ; > ; == ; & ; >`",
+    "`case_when ; mutate ; == ; & ; == ; == ; & ; == ; == ; & ; > ; ring == FALSE & num_moon > 0 ~ 'terrestrial with moon'`",
     correct = FALSE,
     message = "- <i class='fas fa-exclamation'></i> Incorrect! "
   ),
   answer(
-    "`case_when; mutate ; == ; | ; == ; == ; | ; == ; == ; | ; == ; == ; | ; == `",
+    "`case_when; mutate ; == ; & ; == ; == ; & ; == ; == ; & ; == ; TRUE ~ 'terrestrial with moon'`",
     correct = FALSE,
     message =  "- <i class='fas fa-check'></i> Incorrect! Think about the sintaxis on `case_when` and `mutate`"
   ),
