@@ -5,8 +5,8 @@ account: javiera-riffo-torres
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 3299595
-bundleId: 3903870
+bundleId: 3907416
 url: https://javiera-riffo-torres.shinyapps.io/Prueba_formativa/
-when: 1606299157.39915
+when: 1606360381.56227
 asMultiple: FALSE
 asStatic: FALSE
