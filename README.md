@@ -40,6 +40,6 @@ Sayén is very shy, she does not believe so much in her capacities and suffers f
 
 ## 4. Slides
 
-[Slides](https://github.com/jariffo/Rstudio_Certification_Teaching/blob/main/docs/Clase_case_when.Rmd)
+[Slides código](https://github.com/jariffo/Rstudio_Certification_Teaching/blob/main/docs/Clase_case_when.Rmd)
 
-
+[Slides pdf](https://github.com/jariffo/Rstudio_Certification_Teaching/blob/main/docs/Let’s%20master%20case_when().pdf)
